@@ -1,0 +1,88 @@
+.btn {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   gap: 5px;
+   cursor: pointer;
+   background: none;
+   border-style: none;
+   color: white;
+}
+
+.filledInfo,
+.filledSuccess,
+.filledDanger,
+.filledStandard,
+.outlinedInfo,
+.outlinedSuccess,
+.outlinedDanger,
+.outlinedStandard {
+   padding: 8px 16px;
+   border-radius: 4px;
+   font-size: 14px;
+   font-weight: 500;
+}
+
+.filledInfo {
+   background-color: var(--info);
+   color: white;
+}
+
+.filledSuccess {
+   background-color: var(--primary);
+   color: white;
+}
+
+.filledDanger {
+   background-color: var(--danger);
+   color: white;
+}
+
+.filledStandard {
+   background-color: var(--primary);
+   color: var(--background);
+}
+
+.outlinedInfo {
+   background-color: transparent;
+   color: var(--info);
+   border: 1px solid var(--info);
+}
+
+.outlinedSuccess {
+   background-color: transparent;
+   color: var(--primary);
+   border: 1px solid var(--primary);
+}
+
+.outlinedDanger {
+   background-color: transparent;
+   color: var(--danger);
+   border: 1px solid var(--danger);
+}
+
+.outlinedStandard {
+   color: var(--primary);
+   border: 1px solid var(--primary);
+}
+
+.disabled {
+   opacity: 0.6;
+   cursor: not-allowed;
+}
+
+.info {
+   color: var(--info);
+}
+
+.success {
+   color: var(--primary);
+}
+
+.danger {
+   color: var(--danger);
+}
+
+.icon {
+   font-size: 22px;
+}

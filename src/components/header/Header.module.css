@@ -1,0 +1,25 @@
+.wrapper {
+   width: 95vw;
+   max-width: 1200px;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   margin: 0 auto;
+   padding: 10px 0;
+}
+
+.titleImgWrapper {
+   display: flex;
+   align-items: center;
+   gap: 10px;
+}
+
+.title {
+   font-size: 24px;
+   line-height: 1;
+   color: var(--primary);
+}
+
+.titleImg {
+   height: 90px;
+}

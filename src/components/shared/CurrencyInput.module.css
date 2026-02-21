@@ -1,0 +1,26 @@
+.container {
+   position: relative;
+   max-width: 150px;
+   margin: 0 auto;
+}
+
+.input {
+   background: none;
+   appearance: none;
+   -webkit-appearance: none;
+   -moz-appearance: textfield;
+   border: 1px solid var(--dark-grey);
+   padding: 3px 10px 3px 8px;
+   border-radius: 3px;
+   color: white;
+   width: 100%;
+   text-align: right;
+}
+
+.icon {
+   position: absolute;
+   left: 5px;
+   top: 50%;
+   transform: translateY(-50%);
+   color: var(--light-grey);
+}

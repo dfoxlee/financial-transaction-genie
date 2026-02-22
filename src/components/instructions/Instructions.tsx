@@ -27,7 +27,7 @@ export default function Instructions() {
                   At this point you can start using the application offline.
                </li>
                <li className={styles.startingItem}>
-                  Fill in your financial transactions in the template.
+                  Fill in your financial transactions in the template. (Copy and paste data in or manually enter values - just please don't change the column headers)
                </li>
                <li className={styles.startingItem}>
                   Upload the completed template to the Financial Transaction

@@ -11,6 +11,15 @@
    padding: 10px 20px;
    border-radius: 10px;
    background-color: var(--card-background);
+   width: 95vw;
+   max-width: 500px;
+   height: 80vh;
+   overflow-y: auto;
+}
+
+.maxWrapper {
+   width: 90vw;
+   height: 90vh;
 }
 
 .header {
@@ -23,4 +32,14 @@
    display: flex;
    align-items: center;
    gap: 5px;
+}
+
+.table {
+   border-collapse: collapse;
+}
+
+.tableHeader {
+   font-size: 14px;
+   color: var(--primary);
+   border-bottom: 1px solid var(--dark-grey);
 }

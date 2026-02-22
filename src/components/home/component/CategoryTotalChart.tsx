@@ -1,17 +1,28 @@
 import { useTransactionsStore } from "../../../stores/transactions.store";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import { Pie } from "react-chartjs-2";
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 
 import styles from "./CategoryTotalChart.module.css";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
+
+const chartOptions = {
+   plugins: {
+      legend: {
+         position: "right" as const,
+      },
+   },
+};
 
 export default function CategoryTotalChart() {
    // stores
    const currentTransactions = useTransactionsStore(
       (state) => state.currentTransactions,
    );
+
+   // states
+   const [noOfCategories, setNoOfCategories] = useState(5);
 
    // memoized values
    const chartData = useMemo(() => {
@@ -68,7 +79,24 @@ export default function CategoryTotalChart() {
 
    return (
       <div className={styles.container}>
-         <Pie data={chartData} />
+         <div className={styles.rangeWrapper}>
+            <h3
+               className={styles.rangeAmount}
+            >{`No. of Categories: ${noOfCategories}`}</h3>
+            <input
+               type="range"
+               min={0}
+               max={currentTransactions?.length}
+               value={noOfCategories}
+               onChange={(e) => setNoOfCategories(Number(e.target.value))}
+               step={
+                  currentTransactions?.length
+                     ? currentTransactions.length / 10
+                     : 1
+               }
+            />
+         </div>
+         <Pie data={chartData} options={chartOptions} />
       </div>
    );
 }

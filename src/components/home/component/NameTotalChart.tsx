@@ -1,15 +1,25 @@
 import { useTransactionsStore } from "../../../stores/transactions.store";
-import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import { Pie } from "react-chartjs-2";
-import { useMemo } from "react";
+import { useMemo, useState, type ChangeEvent } from "react";
 
 import styles from "./NameTotalChart.module.css";
+
+const chartOptions = {
+   plugins: {
+      legend: {
+         position: "right" as const,
+      },
+   },
+};
 
 export default function NameTotalChart() {
    // stores
    const currentTransactions = useTransactionsStore(
       (state) => state.currentTransactions,
    );
+
+   // states
+   const [noOfNames, setNoOfNames] = useState(5);
 
    // memoized values
    const chartData = useMemo(() => {
@@ -58,6 +68,11 @@ export default function NameTotalChart() {
       };
    }, [currentTransactions]);
 
+   // handlers
+   const handleRangeChange = (event: ChangeEvent<HTMLInputElement>) => {
+      setNoOfNames(Number(event.target.value));
+   };
+
    if (!chartData) {
       return (
          <div className={styles.container}>
@@ -68,7 +83,24 @@ export default function NameTotalChart() {
 
    return (
       <div className={styles.container}>
-         <Pie data={chartData} />
+         <div className={styles.rangeWrapper}>
+            <h3
+               className={styles.rangeAmount}
+            >{`No. of Names: ${noOfNames}`}</h3>
+            <input
+               type="range"
+               min={0}
+               max={currentTransactions?.length}
+               value={noOfNames}
+               onChange={handleRangeChange}
+               step={
+                  currentTransactions?.length
+                     ? currentTransactions.length / 10
+                     : 1
+               }
+            />
+         </div>
+         <Pie data={chartData} options={chartOptions} />
       </div>
    );
 }

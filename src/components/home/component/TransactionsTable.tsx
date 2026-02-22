@@ -3,13 +3,19 @@ import { useTransactionsStore } from "../../../stores/transactions.store";
 import CurrencyInput from "../../shared/CurrencyInput";
 import DateInput from "../../shared/DateInput";
 import TextInput from "../../shared/TextInput";
-
-import styles from "./TransactionsTable.module.css";
 import StandardBtn from "../../shared/StandardBtn";
 import { FaTrash } from "react-icons/fa";
 import CategoryAutoComplete from "../../shared/CategoryAutoComplete";
 
-export default function TransactionsTable() {
+import styles from "./TransactionsTable.module.css";
+
+interface TransactionsTableProps {
+   openAssignCategoriesModal: () => void;
+}
+
+export default function TransactionsTable({
+   openAssignCategoriesModal,
+}: TransactionsTableProps) {
    // states
    const [searchValue, setSearchValue] = useState("");
 
@@ -127,7 +133,15 @@ export default function TransactionsTable() {
                            onChange={handleSearchChange}
                            placeholder="Search transactions and descriptions"
                         />
-                        <h3>{`Total: $${totalAmount.toFixed(2)}`}</h3>
+                        <div className={styles.sideWrapper}>
+                           <h3>{`Total: $${totalAmount.toFixed(2)}`}</h3>
+                           <StandardBtn
+                              text="Assign Categories"
+                              outlined
+                              theme="standard"
+                              onClick={openAssignCategoriesModal}
+                           />
+                        </div>
                      </div>
                   </th>
                </tr>

@@ -1,0 +1,26 @@
+.container {
+   position: fixed;
+   inset: 0;
+   display: grid;
+   place-content: center;
+   background-color: var(--background);
+   z-index: 100;
+}
+
+.wrapper {
+   padding: 10px 20px;
+   border-radius: 10px;
+   background-color: var(--card-background);
+}
+
+.header {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+}
+
+.modalOptionsWrapper {
+   display: flex;
+   align-items: center;
+   gap: 5px;
+}

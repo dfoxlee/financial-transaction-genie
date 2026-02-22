@@ -56,7 +56,10 @@ export const parseTransactions = (
       const parsedTransaction = transactionSchema.safeParse(transaction);
 
       if (parsedTransaction.success) {
-         validTransactions.push({ id: index, ...parsedTransaction.data });
+         validTransactions.push({
+            id: index,
+            ...parsedTransaction.data,
+         });
          return;
       }
 

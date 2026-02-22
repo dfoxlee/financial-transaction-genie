@@ -50,3 +50,10 @@
 .tableData {
    border-bottom: 3px solid var(--background);
 }
+
+.sideWrapper {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   gap: 20px;
+}
